@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'app/content/select_event.css' %}" />
+    <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">Application name</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Wrestlers<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="{% url 'add_wrestler' %}">Add Wrestler</a></li>
+							<li><a href="{% url 'edit_wrestler' %}">Edit Wrestler</a></li>
+                            <li><a href="{% url 'delete_wrestler' %}">Delete Wrestler</a></li>
+							<li><a href="{% url 'view_wrestler' %}">View Wrestler</a></li>
+						</ul>
+					</li>
+                    <li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Events<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="{% url 'select_event' %}">Select Event</a></li>
+							<li><a href="{% url 'add_event' %}">Add Event</a></li>
+						</ul>
+					</li>
+					<li><a href="{% url 'statistics' %}">Statistics</a></li>
+                </ul>
+                {% include 'app/loginpartial.html' %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    <h2>Select Event</h2>
+    <form>
+      <div class="form-group">
+        <!--<label for="sel1">Select One</label>-->
+        <div id="select_box">
+        <select class="form-control" id="selEvent">
+          <option>Backlash</option>
+          <option>Battleground</option>
+          <option>Clash of Champions</option>
+          <option>Extreme Rules</option>
+          <option>Fastlane</option>
+          <option>Hell in a Cell</option>
+          <option>Money in the Bank</option>
+          <option>No Mercy</option>
+          <option>Payback</option>
+          <option>Royal Rumble</option>
+          <option>SummerSlam</option>
+          <option>Survivor Series</option>
+        </select>
+        </div>
+
+        <div id="select_box_2">
+        <select class="form-control" id="selYear">
+          <option>2012</option>
+          <option>2013</option>
+          <option>2014</option>
+          <option>2015</option>
+          <option>2016</option>
+          <option>2017</option>
+        </select>
+        </div>
+      </div>
+        
+        <div class="container" id="button_group">
+        <button type="button" class="btn btn-success" value="Submit Button">Edit Event</button>
+        <button type="button" class="btn btn-success" value="Submit Button">Delete Event</button>
+        <button type="button" class="btn btn-success" value="Submit Button">View Event</button>
+        </div>      
+    </form>
+
+	<div class="container show_head">
+	<div class="container">
+		<div class="row">
+    		<div class="col-12"><h1 class="show_title">Royal Rumble</h1></div>
+  		</div>
+  		<div class="row">
+    		<div class="col-12"><h2 class="show_date">January 24, 2014</h2></div>
+  		</div>
+	</div>
+	</div>
+    <div class="container match">
+  		<div class="row">
+    		<div class="col-12"><h2 class="match_type">Royal Rumble</h2></div>
+  		</div>
+  		<div class="row">
+    		<div class="col-12"><h3 class="title">World Heavyweight Championship</h3></div>
+  		</div>
+		<div class="row">
+    		<div class="col-12 details">Prediction: Dean Ambrose</div>
+  		</div>
+		<div class="row details">
+    		<div class="col-12">Winner: Triple H</div>
+  		</div>
+  	</div>
+
+
+	<div class="container match">
+  		<div class="row">
+    		<div class="col-12"><h2 class="match_type">Hell In A Cell</h2></div>
+  		</div>
+  		<div class="row">
+    		<div class="col-12"><h3 class="title">WWE Raw Women's Championship</h3></div>
+  		</div>
+		<div class="row">
+    		<div class="col-12 details"><p class="participants">Sasha Banks vs Charlotte</p></div>
+  		</div>
+		<div class="row">
+    		<div class="col-12 details">Prediction: Charlotte</div>
+  		</div>
+		<div class="row details">
+    		<div class="col-12">Winner: Charlotte</div>
+  		</div>
+  	</div>
+	
+	<div class="container match">
+  		<div class="row">
+    		<div class="col-12"><h2 class="match_type">Tag Team</h2></div>
+  		</div>
+		<div class="row">
+    		<div class="col-12 details"><p class="participants">Big E and Xavier Woods vs Jimmy Uso and Jey Uso</p></div>
+  		</div>
+		<div class="row">
+    		<div class="col-12 details">Prediction: Jimmy Uso and Jey Uso</div>
+  		</div>
+		<div class="row details">
+    		<div class="col-12">Winner: Jimmy Uso and Jey Uso</div>
+  		</div>
+  	</div>
+
+	<div class="container match">
+  		<div class="row">
+    		<div class="col-12"><h2 class="match_type">Tag Team</h2></div>
+  		</div>
+  		<div class="row">
+    		<div class="col-12"><h3 class="title">WWE Raw Tag Team Championship</h3></div>
+  		</div>
+		<div class="row">
+    		<div class="col-12 details"><p class="participants">Roman Reigns and Seth Rollins vs Sheamus and Cesaro<br>vs<br>Dash Wilder and Scott Dawson</p></div>
+  		</div>
+
+		<div class="row">
+    		<div class="col-12 details">Prediction: Jimmy Uso and Jey Uso</div>
+  		</div>
+		<div class="row details">
+    		<div class="col-12">Winner: Jimmy Uso and Jey Uso</div>
+  		</div>
+  	</div>
+
+  	<div class="container match">
+  		<div class="row">
+    		<div class="col-12"><h2 class="match_type">Singles</h2></div>
+  		</div>
+		<div class="row">
+    		<div class="col-12 details"><p class="participants">Chris Jericho vs AJ Styles</p></div>
+  		</div>
+		<div class="row">
+    		<div class="col-12 details">Prediction: AJ Styles</div>
+  		</div>
+		<div class="row details">
+    		<div class="col-12">Winner: Chris Jericho</div>
+  		</div>
+  	</div>
+
+  	<div class="container match">
+  		<div class="row">
+    		<div class="col-12"><h2 class="match_type">Tables, Ladders, &amp; Chairs</h2></div>
+  		</div>
+  		<div class="row">
+    		<div class="col-12"><h3 class="title">WWE Intercontinental Championship</h3></div>
+  		</div>
+		<div class="row">
+    		<div class="col-12 details"><p class="participants">Kevin Owens vs Zack Ryder vs Sami Zayn vs Kalisto vs Stardust vs The Miz</p></div>
+  		</div>
+		<div class="row">
+    		<div class="col-12 details">Prediction: Kevin Owens</div>
+  		</div>
+		<div class="row details">
+    		<div class="col-12">Winner: Zack Ryder</div>
+  		</div>
+  	</div>
+
+    <div class="container body-content">
+{% block content %}{% endblock %}
+        <hr/>
+        <footer>
+            <p>&copy; {{ year }} - My Django Application</p>
+        </footer>
+    </div>
+
+    <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'app/scripts/bootstrap.js' %}"></script>
+    <script src="{% static 'app/scripts/respond.js' %}"></script>
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

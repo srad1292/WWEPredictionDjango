@@ -1,0 +1,68 @@
+h2, h1, label {
+    text-align: center;
+}
+
+#select_box {
+    margin-bottom: 1.1rem;
+}
+
+#select_box, #select_box_2 {
+    width: 65%;
+    padding-left: 35%;
+}
+
+
+#button_group {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.form-inline {
+    text-align: center;
+}
+
+.form-group {
+    text-align: center;
+}
+
+.show_head {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding-bottom: 2rem;
+}
+
+.show_title {
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+
+.show_date {
+    margin-top: 0px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.match {
+    margin-bottom: 1rem;
+    border: 1px dashed black;
+    text-align: center;
+    background-color: #b2cecf;
+}
+
+.match_type, .title {
+    margin-top: 0px;
+    font-weight: bold;
+}
+
+    .title .participants {
+        margin-bottom: 2rem;
+    }
+
+.details {
+    font-size: 1.2em;
+}
+
+.participants {
+    font-size: 1.3em;
+}

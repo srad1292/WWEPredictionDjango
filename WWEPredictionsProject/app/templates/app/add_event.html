@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
+    
+	<link rel="stylesheet" type="text/css" href="{% static 'app/content/add_event.css' %}" />
+    <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">Application name</a>                
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Wrestlers<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="{% url 'add_wrestler' %}">Add Wrestler</a></li>
+							<li><a href="{% url 'edit_wrestler' %}">Edit Wrestler</a></li>
+                            <li><a href="{% url 'delete_wrestler' %}">Delete Wrestler</a></li>
+							<li><a href="{% url 'view_wrestler' %}">View Wrestler</a></li>
+						</ul>
+					</li>
+                    <li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Events<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="{% url 'select_event' %}">Select Event</a></li>
+							<li><a href="{% url 'add_event' %}">Add Event</a></li>
+						</ul>
+					</li>
+					<li><a href="{% url 'statistics' %}">Statistics</a></li>
+                </ul>
+                {% include 'app/loginpartial.html' %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    <h2>New Event</h2>
+    <form>
+      <div class="form-group">
+        <!--<label for="sel1">Select One</label>-->
+        <div id="event_name_container">
+            <input type="text" placeholder="Event Name"/>
+        </div>
+
+        <div id="event_date_container">
+            <input type="number" min="1950" max="2017" value="2017" />
+            </datalist>
+
+            <select class="form-control" id="eventMonth">
+                    <option>January</option>
+                    <option>Febuary</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+            </select>
+
+            <input type="number" min="1" max="31" value="1" />
+        </div>
+      </div>
+
+        <div class="form-group match">
+            <select class="form-control" class="matchType">
+                    <option>Singles</option>
+                    <option>Tag</option>
+                    <option>Handicap</option>
+                    <option>Battle Royal</option>
+                    <option>Royal Rumble</option>
+            </select>
+
+            <input type="checkbox" id="specialty" name="specialty" value="specialty">
+            <label for="specialty">Is this a specialty match?</label>
+
+            <input type="text" placeholder="Type of match, ie, Hell in a Cell"/>
+
+            <input type="checkbox" id="title" name="title" value="title">
+            <label for="specialty">Is this a title match?</label>
+
+            <select class="form-control">
+                <option>WWE Universal Title</option>
+                <option>WWE United States Title</option>
+                <option>WWE Intercontinental Title</option>
+            </select>
+
+            <input type="number" min="2" max="20" placeholder="Number of Participants" />
+
+            <select class="form-control">
+                <option>Aiden English</option>
+                <option>AJ Styles</option>
+                <option>Big E</option>
+                <option>Dean Ambrose</option>
+                <option>John Cena</option>
+                <option>Roman Reigns</option>
+                <option>Seth Rollins</option>
+                <option>Triple H</option>
+            </select>
+
+            <select class="form-control">
+                <option>Aiden English</option>
+                <option>AJ Styles</option>
+                <option>Big E</option>
+                <option>Dean Ambrose</option>
+                <option>John Cena</option>
+                <option>Roman Reigns</option>
+                <option>Seth Rollins</option>
+                <option>Triple H</option>
+            </select>
+
+            <select class="form-control">
+                <option>Aiden English</option>
+                <option>AJ Styles</option>
+                <option>Big E</option>
+                <option>Dean Ambrose</option>
+                <option>John Cena</option>
+                <option>Roman Reigns</option>
+                <option>Seth Rollins</option>
+                <option>Triple H</option>
+            </select>
+
+            <select class="form-control">
+                <option>Aiden English</option>
+                <option>AJ Styles</option>
+                <option>Big E</option>
+                <option>Dean Ambrose</option>
+                <option>John Cena</option>
+                <option>Roman Reigns</option>
+                <option>Seth Rollins</option>
+                <option>Triple H</option>
+            </select>
+        </div>
+        
+        <div class="container" id="button_group">
+        <button type="button" class="btn btn-success" value="Submit Button">Add Match</button>
+        <button type="button" class="btn btn-success" value="Submit Button">Save Event</button>
+        <button type="button" class="btn btn-success" value="Submit Button">Cancel Event</button>
+        </div>      
+    </form>
+	 
+
+    <div class="container body-content">
+{% block content %}{% endblock %}
+        <hr/>
+        <footer>
+            <p>&copy; {{ year }} - My Django Application</p>
+        </footer>
+    </div>
+
+    <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'app/scripts/bootstrap.js' %}"></script>
+    <script src="{% static 'app/scripts/respond.js' %}"></script>
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

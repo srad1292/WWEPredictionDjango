@@ -1,0 +1,12 @@
+#display_stats {
+    text-align: center;
+}
+
+.jumbotron {
+    padding-top: 2rem;
+}
+
+.view_headings {
+    font-weight: bold;
+    text-decoration: underline;
+}

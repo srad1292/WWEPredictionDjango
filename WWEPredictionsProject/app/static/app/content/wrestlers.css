@@ -1,0 +1,95 @@
+/**Site CSS */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+
+/**Basic Wrestlers Page CSS*/
+
+h2, label {
+    text-align: center;
+}
+
+.form-group {
+    text-align: center;
+}
+
+select {
+    text-align: center;
+}
+
+option {
+    font-size: 1.8rem;
+}
+
+
+#button_group {
+    text-align: center;
+}
+
+
+/**Add Wrestler CSS*/
+#add_wrestler_container {
+    display: none;
+}
+
+/**Edit Wrestler CSS*/
+#edit_wrestler_container {
+    display: none;
+}
+
+
+
+/**View Wrestler CSS*/
+
+#view_wrestler_container {
+    display: none;
+}
+
+.jumbotron {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.view_headings {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#view_name {
+    font-weight: bold;
+    padding-top: -2rem;
+    padding-bottom: 3rem;
+}
+
+/**Footer*/
+footer {
+    text-align: center;
+}

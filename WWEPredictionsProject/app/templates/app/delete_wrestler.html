@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'app/content/delete_wrestler.css' %}" />
+    <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
+    
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">Application name</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Wrestlers<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="{% url 'add_wrestler' %}">Add Wrestler</a></li>
+							<li><a href="{% url 'edit_wrestler' %}">Edit Wrestler</a></li>
+                            <li><a href="{% url 'delete_wrestler' %}">Delete Wrestler</a></li>
+							<li><a href="{% url 'view_wrestler' %}">View Wrestler</a></li>
+						</ul>
+					</li>
+                    <li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Events<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="{% url 'select_event' %}">Select Event</a></li>
+							<li><a href="{% url 'add_event' %}">Add Event</a></li>
+						</ul>
+					</li>
+					<li><a href="{% url 'statistics' %}">Statistics</a></li>
+                    
+                </ul>
+                {% include 'app/loginpartial.html' %}
+            </div>
+        </div>
+    </div>
+
+	<div class="container">
+        <div class="container" id="delete_wrestler_container">
+            <h2>Delete Wrestler</h2>
+            <form class="DeleteWrestlerForm" method="post">
+            {% csrf_token %}
+            {{ delete_form.as_p }}
+            <input type="submit" value="Delete" name="delete_wrestler"/>
+            </form>
+        </div>
+    </div>
+
+    <div class="container body-content">
+{% block content %}{% endblock %}
+        <hr/>
+        <footer>
+            <p>WWE Predictions</p>
+            <p>Sam Radford</p>
+            <p>2017</p>
+        </footer>
+    </div>
+
+    <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'app/scripts/bootstrap.js' %}"></script>
+    <script src="{% static 'app/scripts/respond.js' %}"></script>
+    <script src="{% static 'app/scripts/wrestlers.js' %}"></script>
+{% block scripts %}{% endblock %}
+
+</body>
+</html>
