@@ -56,11 +56,14 @@
             {% csrf_token %}
             {{ view_form.as_p }}
             <input type="submit" value="View" name="view_wrestler"/>
+            {% if not viewed %}
+                <small id="failed">{{ succeeded }}</small>
+            {% endif %}
             </form>
         </div>
     </div>
 
-    {% if to_view %}
+    {% if viewed %}
         <div class="container" id="view_wrestler_container">
   		<div class="jumbotron">
     		<h2 id="view_name">{{ name }}</h2> 

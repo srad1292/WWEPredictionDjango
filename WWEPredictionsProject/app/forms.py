@@ -27,10 +27,11 @@ class AddWrestlerForm(forms.Form):
                                    'placeholder': 'User name'}))
 
 class EditWrestlerForm(forms.Form):
-    old_name = forms.ModelChoiceField(queryset=Wrestler.objects.all().order_by('name'), empty_label=None)
-    new_name = forms.CharField(label='New Name: ', max_length=80, widget=forms.TextInput({
+    old_name = forms.ModelChoiceField(queryset=Wrestler.objects.all().order_by('name'), empty_label=None, widget=forms.Select({'id': 'old_name_field'}))
+    new_name = forms.CharField(label='New Name', max_length=80, widget=forms.TextInput({
                                    'class': 'form-control',
-                                   'placeholder': 'John Doe'}))
+                                   'placeholder': 'John Doe',
+                                   'id': 'new_name_field'}))
 
 class DeleteWrestlerForm(forms.Form):
     name = forms.ModelChoiceField(queryset=Wrestler.objects.all().order_by('name'), empty_label=None)

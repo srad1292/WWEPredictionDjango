@@ -37,6 +37,10 @@ h2, label {
     text-align: center;
 }
 
+form {
+    text-align: center;
+}
+
 .form-group {
     text-align: center;
 }
@@ -55,7 +59,13 @@ option {
 }
 
 
+#passed {
+    color: forestgreen;
+}
 
+#failed {
+    color: red;
+}
 
 
 

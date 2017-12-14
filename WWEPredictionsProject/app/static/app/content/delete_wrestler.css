@@ -55,7 +55,13 @@ option {
 }
 
 
+#passed {
+    color: forestgreen;
+}
 
+#failed {
+    color: red;
+}
 
 
 

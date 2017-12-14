@@ -56,6 +56,13 @@
             {% csrf_token %}
             {{ delete_form.as_p }}
             <input type="submit" value="Delete" name="delete_wrestler"/>
+            {% if succeeded %}
+                {% if deleted %}
+                    <small id="passed">{{ succeeded }}</small>
+                {% else %}
+                    <small id="failed">{{ succeeded }}</small>
+                {% endif %}
+            {% endif %}
             </form>
         </div>
     </div>

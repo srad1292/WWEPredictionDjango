@@ -73,6 +73,13 @@
         {% csrf_token %}
         {{ add_form.as_p }}
         <input type="submit" value="Submit" name="save_wrestler"/>
+        {% if succeeded %}
+            {% if added %}
+                <small id="passed">{{ succeeded }}</small>
+            {% else %}
+                <small id="failed">{{ succeeded }}</small>
+            {% endif %}
+        {% endif %}
     </form>
   </div>
    
